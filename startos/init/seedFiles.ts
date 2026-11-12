@@ -40,7 +40,11 @@ export const seedFiles = sdk.setupOnInit(async (effects) => {
     .const(effects)
   if (!password) {
     password = utils.getDefaultString({ charset: 'a-z,A-Z,0-9', len: 32 })
-    await storeJson.merge(effects, { integrationPassword: password })
+    await storeJson.merge(
+      effects,
+      { integrationPassword: password },
+      { allowWriteAfterConst: true },
+    )
   }
   const storage = await storeJson
     .read((s) => ({ storage: s.storage, subfolder: s.subfolder }))
