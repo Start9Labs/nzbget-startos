@@ -1,0 +1,11 @@
+{
+  "name": "nzbget-startos",
+  "dependencies": {
+    "@start9labs/start-sdk": "4.1.0",
+    "filebrowser-quantum-startos": "github:Start9Labs/filebrowser-quantum-startos#next",
+    "nextexplorer-startos": "github:Start9Labs/nextexplorer-startos#next"
+  },
+  "overrides": {
+    "@start9labs/start-sdk": "$@start9labs/start-sdk"
+  }
+}

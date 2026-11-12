@@ -50,7 +50,7 @@ Completed and intermediate files stay on the same selected shared volume. Mount 
 
 On each startup the package reasserts authentication, disables authorized-IP bypass, fixes the listener and private state paths, applies the selected download directory and installs separate restricted integration credentials. The admin password is set through the password action and passed to the upstream entrypoint. Conflicting application settings revert on startup. Server, scheduling and other unmodeled settings remain user-owned.
 
-`public/credentials.json` publishes the restricted integration username and password, not the admin password. These credentials can manage downloads and read configuration but cannot save settings. They survive admin-password rotation and are regenerated from private state after restore.
+`public/credentials.json` publishes the restricted integration username and password, not the admin password, together with the selected completed-download root (`downloadPath`, null before storage selection). Importers watch this path to follow storage changes without duplicating the selection. These credentials can manage downloads and read configuration but cannot save settings. They survive admin-password rotation and are regenerated from private state after restore.
 
 ## Dependencies
 
