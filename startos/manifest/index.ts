@@ -13,7 +13,7 @@ export const manifest = setupManifest({
   volumes: ['main', 'startos', 'public'],
   images: {
     nzbget: {
-      source: { dockerTag: 'nzbgetcom/nzbget:v26.3' },
+      source: { dockerBuild: {} },
       arch: ['x86_64', 'aarch64'],
     },
   },

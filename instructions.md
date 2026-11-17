@@ -18,6 +18,8 @@ A password-protected web interface, shared download storage, and automatic conne
 4. Open **Web Interface** and sign in. Configure your Usenet provider under **Settings → NEWS-SERVERS**, using the provider's host, port, credentials and TLS settings.
 5. Save and reload the NZBGet settings, then add an NZB or connect an Arr application.
 
+The default TLS certificate store uses the image's refreshed Alpine CA bundle. Custom **CertStore** paths are preserved and must be maintained separately. Keep **CertCheck** enabled when using TLS.
+
 ## Connecting Arr services
 
 In Sonarr, Radarr, Lidarr, Shelfarr or Prowlarr, run **Connect NZBGet**. Each application uses its own category. Existing qBittorrent connections are not removed.
