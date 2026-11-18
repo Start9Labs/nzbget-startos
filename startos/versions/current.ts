@@ -4,15 +4,15 @@ export const current = VersionInfo.of({
   version: '26.3:1',
   releaseNotes: {
     en_US:
-      'Refresh the default TLS trust bundle to remove the compromised emSign ECC Root CA - G3 certificate. Custom CertStore settings are unchanged.',
+      'Stops trusting certificates from a compromised certificate authority (eMudhra).',
     es_ES:
-      'Actualiza los certificados TLS predeterminados para eliminar el certificado comprometido emSign ECC Root CA - G3. Los ajustes personalizados de CertStore no cambian.',
+      'Deja de confiar en los certificados de una autoridad de certificación comprometida (eMudhra).',
     de_DE:
-      'Aktualisiert die standardmäßigen TLS-Zertifikate und entfernt das kompromittierte Zertifikat emSign ECC Root CA - G3. Benutzerdefinierte CertStore-Einstellungen bleiben unverändert.',
+      'Vertraut Zertifikaten einer kompromittierten Zertifizierungsstelle (eMudhra) nicht mehr.',
     pl_PL:
-      'Odświeża domyślny zestaw certyfikatów TLS, usuwając skompromitowany certyfikat emSign ECC Root CA - G3. Własne ustawienia CertStore pozostają bez zmian.',
+      'Przestaje ufać certyfikatom przejętego urzędu certyfikacji (eMudhra).',
     fr_FR:
-      'Actualise les certificats TLS par défaut pour supprimer le certificat compromis emSign ECC Root CA - G3. Les paramètres CertStore personnalisés restent inchangés.',
+      'Ne fait plus confiance aux certificats d’une autorité de certification compromise (eMudhra).',
   },
   migrations: {
     up: async ({ effects }) => {},
