@@ -28,7 +28,7 @@
 
 ## Image and Container Runtime
 
-The unmodified upstream `nzbgetcom/nzbget` image runs in `nzbget-sub` on x86_64 and aarch64. The upstream entrypoint drops privileges to uid/gid 1000. A preparation oneshot seeds upstream defaults and creates missing download directories without changing existing shared-directory permissions.
+A thin wrapper around upstream `nzbgetcom/nzbget` runs in `nzbget-sub` on x86_64 and aarch64. The root `Dockerfile` upgrades Alpine's `ca-certificates-bundle` and copies the system trust bundle over NZBGet's private default `${AppDir}/cacert.pem`, failing the build if that file is empty or retains the compromised emSign ECC Root CA - G3. The layer is temporary until upstream's own bundle excludes that root. TLS verification is enabled by default; a `CertStore` set to another path is left to the user. The upstream entrypoint drops privileges to uid/gid 1000. A preparation oneshot seeds upstream defaults and creates missing download directories without changing existing shared-directory permissions.
 
 ## Volume and Data Layout
 
@@ -96,7 +96,7 @@ The package surface is summarized below.
 
 ```yaml
 package_id: nzbget
-image: nzbgetcom/nzbget
+image: nzbgetcom/nzbget # temporary CA-store layer in ./Dockerfile
 architectures: [x86_64, aarch64]
 subcontainers: [nzbget-sub]
 volumes:
